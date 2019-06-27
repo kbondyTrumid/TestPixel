@@ -1,6 +1,5 @@
 <?php
-header("Content-Type: image/jpeg"); // it will return image 
-readfile("img.jpg");
+
 
     function get_client_ip() {
     $ipaddress = '';
