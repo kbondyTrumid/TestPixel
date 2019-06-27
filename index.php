@@ -1,6 +1,7 @@
 <?php
 
-
+header("Content-Type: image/jpeg"); // it will return image 
+readfile("img.jpg");
     function get_client_ip() {
     $ipaddress = '';
     if (isset($_SERVER['HTTP_CLIENT_IP']))
@@ -22,9 +23,11 @@
 
 $PublicIP = get_client_ip();
 $time = new DateTime("now", new DateTimeZone("America/New_York"));
+$file = '../OutputText.txt';
+$current = file_get_contents($file);
 $current .= $time->format('m/d/Y, H:i:s');
 $current .= " ";
 $current .= $PublicIP;
 $current .= "\n";
-echo $current;
+file_put_contents($file, $current);
 ?>
